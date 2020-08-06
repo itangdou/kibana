@@ -19,7 +19,6 @@ import {
   AppNavLinkStatus,
 } from '../../../../src/core/public';
 import { Storage } from '../../../../src/plugins/kibana_utils/public';
-import { FeatureCatalogueCategory } from '../../../../src/plugins/home/public';
 import { initTelemetry } from './common/lib/telemetry';
 import { KibanaServices } from './common/lib/kibana/services';
 import { jiraActionType, resilientActionType } from './common/lib/connectors';
@@ -37,6 +36,7 @@ import {
   APP_DETECTIONS_PATH,
   APP_HOSTS_PATH,
   APP_OVERVIEW_PATH,
+  APP_NAME,
   APP_NETWORK_PATH,
   APP_TIMELINES_PATH,
   APP_MANAGEMENT_PATH,
@@ -73,14 +73,24 @@ export class Plugin implements IPlugin<PluginSetup, PluginStart, SetupPlugins, S
       plugins.home.featureCatalogue.registerSolution({
         id: APP_ID,
         title: i18n.translate('xpack.securitySolution.featureCatalogue.title', {
-          defaultMessage: 'Security',
+          defaultMessage: APP_NAME,
         }),
-        description: i18n.translate('xpack.securitySolution.featureCatalogue.description', {
+        subtitle: i18n.translate('xpack.securitySolution.featureCatalogue.subtitle', {
           defaultMessage: 'Protect & prevent',
         }),
+        descriptions: [
+          i18n.translate('xpack.securitySolution.featureCatalogueDescription1', {
+            defaultMessage: 'Prevent threats autonomously.',
+          }),
+          i18n.translate('xpack.securitySolution.featureCatalogueDescription2', {
+            defaultMessage: 'Detect and respond.',
+          }),
+          i18n.translate('xpack.securitySolution.featureCatalogueDescription3', {
+            defaultMessage: 'Investigate incidents.',
+          }),
+        ],
         icon: 'logoSecurity',
         path: APP_OVERVIEW_PATH,
-        order: 300,
       });
     }
 
@@ -107,7 +117,7 @@ export class Plugin implements IPlugin<PluginSetup, PluginStart, SetupPlugins, S
       exactRoute: true,
       id: APP_ID,
       title: i18n.translate('xpack.securitySolution.security.title', {
-        defaultMessage: 'Security',
+        defaultMessage: APP_NAME,
       }),
       appRoute: APP_PATH,
       navLinkStatus: AppNavLinkStatus.hidden,

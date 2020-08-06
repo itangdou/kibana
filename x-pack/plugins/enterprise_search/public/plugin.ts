@@ -20,7 +20,11 @@ import {
 import { DEFAULT_APP_CATEGORIES } from '../../../../src/core/public';
 import { LicensingPluginSetup } from '../../licensing/public';
 
-import { APP_SEARCH_PLUGIN, WORKPLACE_SEARCH_PLUGIN } from '../common/constants';
+import {
+  ENTERPRISE_SEARCH_PLUGIN,
+  APP_SEARCH_PLUGIN,
+  WORKPLACE_SEARCH_PLUGIN,
+} from '../common/constants';
 import { getPublicUrl } from './applications/shared/enterprise_search_url';
 import AppSearchLogo from './applications/app_search/assets/logo.svg';
 import WorkplaceSearchLogo from './applications/workplace_search/assets/logo.svg';
@@ -81,6 +85,27 @@ export class EnterpriseSearchPlugin implements Plugin {
     });
 
     if (plugins.home) {
+      plugins.home.featureCatalogue.registerSolution({
+        id: ENTERPRISE_SEARCH_PLUGIN.ID,
+        title: ENTERPRISE_SEARCH_PLUGIN.NAME,
+        subtitle: i18n.translate('xpack.enterpriseSearch.featureCatalogue.subtitle', {
+          defaultMessage: 'Search everything',
+        }),
+        icon: 'logoEnterpriseSearch',
+        descriptions: [
+          i18n.translate('xpack.enterpriseSearch.featureCatalogueDescription1', {
+            defaultMessage: 'Build a powerful search experience.',
+          }),
+          i18n.translate('xpack.enterpriseSearch.featureCatalogueDescription2', {
+            defaultMessage: 'Connect your users to relevant data.',
+          }),
+          i18n.translate('xpack.enterpriseSearch.featureCatalogueDescription3', {
+            defaultMessage: 'Unify your team content.',
+          }),
+        ],
+        path: ENTERPRISE_SEARCH_PLUGIN.URL,
+      });
+
       plugins.home.featureCatalogue.register({
         id: APP_SEARCH_PLUGIN.ID,
         title: APP_SEARCH_PLUGIN.NAME,
@@ -103,9 +128,9 @@ export class EnterpriseSearchPlugin implements Plugin {
     }
   }
 
-  public start(core: CoreStart) { }
+  public start(core: CoreStart) {}
 
-  public stop() { }
+  public stop() {}
 
   private async setPublicUrl(config: ClientConfigType, http: HttpSetup) {
     if (!config.host) return; // No API to check

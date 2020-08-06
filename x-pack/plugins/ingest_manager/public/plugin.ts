@@ -111,7 +111,7 @@ export class IngestManagerPlugin
         icon: 'logstashInput',
         showOnHomePage: true,
         path: BASE_PATH,
-        category: FeatureCatalogueCategory.ADMIN,
+        category: FeatureCatalogueCategory.DATA,
         order: 510,
       });
     }

@@ -107,7 +107,7 @@ HomeApp.propTypes = {
       description: PropTypes.string.isRequired,
       icon: PropTypes.string.isRequired,
       path: PropTypes.string.isRequired,
-      showOnHomePage: PropTypes.boolean.isRequired,
+      showOnHomePage: PropTypes.bool.isRequired,
       category: PropTypes.string.isRequired,
       order: PropTypes.number,
     })
@@ -116,7 +116,8 @@ HomeApp.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      descriptions: PropTypes.arrayOf(PropTypes.string).isRequired,
       icon: PropTypes.string.isRequired,
       path: PropTypes.string.isRequired,
       order: PropTypes.number,

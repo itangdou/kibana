@@ -132,6 +132,8 @@ export class Home extends Component {
     const addDataFeatures = this.getFeaturesByCategory(FeatureCatalogueCategory.DATA);
     const manageDataFeatures = this.getFeaturesByCategory(FeatureCatalogueCategory.ADMIN);
 
+    console.log({ directories, solutions, addDataFeatures, manageDataFeatures });
+
     // Show card for console if none of the manage data plugins are available, most likely in OSS
     if (manageDataFeatures.length < 1 && devTools) {
       manageDataFeatures.push(devTools);
@@ -193,11 +195,7 @@ export class Home extends Component {
         </div>
         <div className="homPageMainContainer">
           <main className="homPageMain" data-test-subj="homeApp">
-            <SolutionsSection
-              addBasePath={addBasePath}
-              directories={directories}
-              solutions={solutions}
-            />
+            <SolutionsSection addBasePath={addBasePath} solutions={solutions} />
 
             {/* If there is only one card in each add and manage data section, this displays the two sections side by side */}
             {addDataFeatures.length === 1 && manageDataFeatures.length === 1 ? (
@@ -282,7 +280,7 @@ Home.propTypes = {
       description: PropTypes.string.isRequired,
       icon: PropTypes.string.isRequired,
       path: PropTypes.string.isRequired,
-      showOnHomePage: PropTypes.boolean.isRequired,
+      showOnHomePage: PropTypes.bool.isRequired,
       category: PropTypes.string.isRequired,
       order: PropTypes.number,
     })
@@ -291,7 +289,8 @@ Home.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      descriptions: PropTypes.arrayOf(PropTypes.string).isRequired,
       icon: PropTypes.string.isRequired,
       path: PropTypes.string.isRequired,
       order: PropTypes.number,

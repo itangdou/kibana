@@ -31,5 +31,5 @@
   ],
   "server": true,
   "ui": true,
-  "requiredBundles": ["esUiShared", "ingestManager", "kibanaUtils", "kibanaReact", "lists", "home"]
+  "requiredBundles": ["esUiShared", "ingestManager", "kibanaUtils", "kibanaReact", "lists"]
 }

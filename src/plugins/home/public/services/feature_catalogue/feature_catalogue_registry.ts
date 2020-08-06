@@ -51,17 +51,19 @@ export interface FeatureCatalogueEntry {
 
 /** @public */
 export interface FeatureCatalogueSolution {
-  /** Unique string identifier for this feature. */
+  /** Unique string identifier for this solution. */
   readonly id: string;
-  /** Title of feature displayed to the user. */
+  /** Title of solution displayed to the user. */
   readonly title: string;
-  /** One-line description of feature displayed to the user. */
-  readonly description: string;
+  /** The tagline of the solution displayed to the user. */
+  readonly subtitle: string;
+  /** A list of use cases for this solution displayed to the user. */
+  readonly descriptions: string[];
   /** EUI `IconType` for icon to be displayed to the user. EUI supports any known EUI icon, SVG URL, or ReactElement. */
   readonly icon: IconType;
   /** URL path to link to this future. Should not include the basePath. */
   readonly path: string;
-  /** An ordinal used to sort features relative to one another for display on the home page */
+  /** An ordinal used to sort solutions relative to one another for display on the home page */
   readonly order?: number;
 }
 
@@ -95,23 +97,6 @@ export class FeatureCatalogueRegistry {
 
   public start({ capabilities }: { capabilities: Capabilities }) {
     this.capabilities = capabilities;
-
-    return {
-      showOnHomePage: (featureId: string) => {
-        const feature = this.features.get(featureId);
-        if (feature) {
-          feature.showOnHomePage = true;
-          this.features.set(featureId, feature);
-        }
-      },
-      hideFromHomePage: (featureId: string) => {
-        const feature = this.features.get(featureId);
-        if (feature) {
-          feature.showOnHomePage = false;
-          this.features.set(featureId, feature);
-        }
-      },
-    };
   }
 
   public get(): readonly FeatureCatalogueEntry[] {
@@ -136,7 +121,6 @@ export class FeatureCatalogueRegistry {
 }
 
 export type FeatureCatalogueRegistrySetup = ReturnType<FeatureCatalogueRegistry['setup']>;
-export type FeatureCatalogueRegistryStart = ReturnType<FeatureCatalogueRegistry['start']>;
 
 const compareByKey = <T>(key: keyof T) => (left: T, right: T) => {
   if (left[key] < right[key]) {

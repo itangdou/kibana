@@ -54,6 +54,7 @@ export class AdvancedSettingsPlugin
         }),
         icon: 'gear',
         path: '/app/management/kibana/settings',
+        showOnHomePage: false,
         category: FeatureCatalogueCategory.ADMIN,
       });
     }

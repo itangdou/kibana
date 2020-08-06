@@ -23,7 +23,7 @@ import { FeatureCatalogueEntry, FeatureCatalogueSolution } from '../../../';
 import { createAppNavigationHandler } from '../app_navigation_handler';
 import { SolutionTitle } from './solution_title';
 
-const getDescriptionText = ({ description }: FeatureCatalogueEntry): JSX.Element => (
+const getDescriptionText = (description: string): JSX.Element => (
   <EuiText size="s" key={`${description}`}>
     <p>{description}</p>
   </EuiText>
@@ -42,24 +42,16 @@ const addSpacersBetweenElementsReducer = (
   return acc;
 };
 
-const getAppDescriptions = (apps: FeatureCatalogueEntry[]) =>
-  apps
-    .sort(sortByOrder)
-    .map(getDescriptionText)
-    .reduce<JSX.Element[]>(addSpacersBetweenElementsReducer, []);
-
-const sortByOrder = (
-  { order: orderA = 0 }: FeatureCatalogueEntry,
-  { order: orderB = 0 }: FeatureCatalogueEntry
-) => orderA - orderB;
+const getDescriptions = (descriptions: string[]) =>
+  descriptions.map(getDescriptionText).reduce<JSX.Element[]>(addSpacersBetweenElementsReducer, []);
 
 interface Props {
   solution: FeatureCatalogueSolution;
   apps?: FeatureCatalogueEntry[];
 }
 
-export const SolutionPanel: FC<Props> = ({ solution, apps = [] }) =>
-  solution && apps.length ? (
+export const SolutionPanel: FC<Props> = ({ solution }) =>
+  solution ? (
     <EuiFlexItem
       key={solution.id}
       className={`${
@@ -70,19 +62,19 @@ export const SolutionPanel: FC<Props> = ({ solution, apps = [] }) =>
       <EuiPanel
         paddingSize="none"
         className={`homSolutionPanel homSolutionPanel--${solution.id}`}
-        onClick={createAppNavigationHandler(solution.path)} // TODO: double check this url once enterprise search overview page is available
+        onClick={createAppNavigationHandler(solution.path)}
       >
         <EuiFlexGroup gutterSize="none">
           <EuiFlexItem grow={1} className={`homSolutionPanel__header`}>
             <SolutionTitle
               iconType={solution.icon}
               title={solution.title}
-              subtitle={solution.description}
+              subtitle={solution.subtitle}
             />
           </EuiFlexItem>
 
           <EuiFlexItem grow={1} className="homSolutionPanel__content">
-            {getAppDescriptions(apps)}
+            {getDescriptions(solution.descriptions)}
           </EuiFlexItem>
         </EuiFlexGroup>
       </EuiPanel>

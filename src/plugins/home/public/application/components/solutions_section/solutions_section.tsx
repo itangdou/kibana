@@ -20,7 +20,7 @@
 import React, { Fragment, FC } from 'react';
 import { EuiFlexGroup, EuiFlexItem, EuiSpacer, EuiHorizontalRule } from '@elastic/eui';
 import { SolutionPanel } from './solution_panel';
-import { FeatureCatalogueEntry, FeatureCatalogueSolution } from '../../../';
+import { FeatureCatalogueSolution } from '../../../';
 
 const sortByOrder = (
   { order: orderA = 0 }: FeatureCatalogueSolution,
@@ -28,49 +28,27 @@ const sortByOrder = (
 ) => orderA - orderB;
 
 interface Props {
-  directories: FeatureCatalogueEntry[];
   solutions: FeatureCatalogueSolution[];
 }
 
-export const SolutionsSection: FC<Props> = ({ directories, solutions }) => {
-  const findDirectoriesBySolution = (
-    solution?: FeatureCatalogueSolution
-  ): FeatureCatalogueEntry[] =>
-    directories.filter((directory) => directory.solution === solution?.id);
-
+export const SolutionsSection: FC<Props> = ({ solutions }) => {
+  // Separate Kibana from other solutions
   const kibana = solutions.find(({ id }) => id === 'kibana');
-  const kibanaApps = findDirectoriesBySolution(kibana);
-
-  // Find non-Kibana solutions
   solutions = solutions.sort(sortByOrder).filter(({ id }) => id !== 'kibana');
 
-  // Maps features to each solution
-  const solutionAppMap = new Map<string, FeatureCatalogueEntry[]>();
-  let appCount = 0;
-
-  solutions.forEach((solution) => {
-    const apps = findDirectoriesBySolution(solution);
-    appCount += apps.length;
-    solutionAppMap.set(solution.id, apps);
-  });
-
-  return appCount || kibanaApps.length ? (
+  return solutions.length || kibana ? (
     <Fragment>
       <EuiFlexGroup className="homSolutions" justifyContent="spaceAround">
-        {appCount ? (
+        {solutions.length ? (
           <EuiFlexItem grow={1} className="homSolutions__group homSolutions__group--multiple">
             <EuiFlexGroup direction="column">
               {solutions.map((solution) => (
-                <SolutionPanel
-                  key={solution.id}
-                  solution={solution}
-                  apps={solutionAppMap.get(solution.id)}
-                />
+                <SolutionPanel key={solution.id} solution={solution} />
               ))}
             </EuiFlexGroup>
           </EuiFlexItem>
         ) : null}
-        {kibana && kibanaApps.length ? <SolutionPanel solution={kibana} apps={kibanaApps} /> : null}
+        {kibana ? <SolutionPanel solution={kibana} /> : null}
       </EuiFlexGroup>
 
       <EuiHorizontalRule margin="xl" />

@@ -117,13 +117,6 @@ export class GraphPlugin
     this.licensing.license$.subscribe((license) => {
       const licenseInformation = checkLicense(license);
       toggleNavLink(licenseInformation, core.chrome.navLinks);
-      if (home) {
-        if (licenseInformation.showAppLink) {
-          home.featureCatalogue.showOnHomePage('graph');
-        } else {
-          home.featureCatalogue.hideFromHomePage('graph');
-        }
-      }
     });
   }
 

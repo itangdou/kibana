@@ -34,20 +34,11 @@ const DASHBOARD_FEATURE: FeatureCatalogueEntry = {
   category: FeatureCatalogueCategory.DATA,
 };
 
-const DISCOVER_FEATURE: FeatureCatalogueEntry = {
-  id: 'discover',
-  title: 'Discover',
-  description: 'Search and explore your data.',
-  icon: 'discoverApp',
-  path: '/app/discover#/',
-  category: FeatureCatalogueCategory.DATA,
-  showOnHomePage: false,
-};
-
 const KIBANA_SOLUTION: FeatureCatalogueSolution = {
   id: 'kibana',
-  title: 'Dashboard',
-  description: 'Display and share a collection of visualizations and saved searches.',
+  title: 'Kibana',
+  subtitle: 'Visualize & analyze',
+  descriptions: ['Analyze data in dashboards.', 'Search and find insights.'],
   icon: 'kibanaApp',
   path: `/app/home`,
 };
@@ -113,30 +104,6 @@ describe('FeatureCatalogueRegistry', () => {
         { id: '3', title: 'Banana' },
         { id: '1', title: 'Orange' },
       ]);
-    });
-  });
-
-  describe('home page visibility', () => {
-    test('hides feature from home page', () => {
-      const service = new FeatureCatalogueRegistry();
-      const setup = service.setup();
-      setup.register(DASHBOARD_FEATURE);
-      const capabilities = { catalogue: {} } as any;
-      const start = service.start({ capabilities });
-      start.hideFromHomePage(DASHBOARD_FEATURE.id);
-      const features = service.get();
-      expect(features[0]).toHaveProperty('showOnHomePage', false);
-    });
-
-    test('shows feature on home page', () => {
-      const service = new FeatureCatalogueRegistry();
-      const setup = service.setup();
-      setup.register(DISCOVER_FEATURE);
-      const capabilities = { catalogue: {} } as any;
-      const start = service.start({ capabilities });
-      start.showOnHomePage(DISCOVER_FEATURE.id);
-      const features = service.get();
-      expect(features[0]).toHaveProperty('showOnHomePage', true);
     });
   });
 });

@@ -35,14 +35,14 @@ export const AddData: FC<Props> = ({ addBasePath, features }) => (
       <EuiFlexItem grow={1}>
         <EuiTitle size="s">
           <h3>
-            <FormattedMessage id="home.addData.sectionTitle" defaultMessage="Add your data" />
+            <FormattedMessage id="home.addData.sectionTitle" defaultMessage="Ingest your data" />
           </h3>
         </EuiTitle>
       </EuiFlexItem>
       <EuiFlexItem grow={false}>
         <EuiButtonEmpty
           iconType="tableDensityExpanded"
-          href={'#/tutorial_directory/sampleData'}
+          href="#/tutorial_directory/sampleData"
           size="xs"
           flush="right"
         >

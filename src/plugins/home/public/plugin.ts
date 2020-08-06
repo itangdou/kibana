@@ -135,12 +135,32 @@ export class HomePublicPlugin
 
     featureCatalogue.registerSolution({
       id: 'kibana',
-      title: i18n.translate('home.kibana.featureCatalogueTitle', {
+      title: i18n.translate('home.kibana.featureCatalogue.title', {
         defaultMessage: 'Kibana',
       }),
-      description: i18n.translate('home.kibana.featureCatalogueDescription', {
+      subtitle: i18n.translate('home.kibana.featureCatalogue.subtitle', {
         defaultMessage: 'Visualize & analyze',
       }),
+      descriptions: [
+        i18n.translate('xpack.observability.featureCatalogueDescription1', {
+          defaultMessage: 'Analyze data in dashboards.',
+        }),
+        i18n.translate('xpack.observability.featureCatalogueDescription2', {
+          defaultMessage: 'Search and find insights.',
+        }),
+        i18n.translate('xpack.observability.featureCatalogueDescription3', {
+          defaultMessage: 'Design pixel-perfect reports.',
+        }),
+        i18n.translate('xpack.observability.featureCatalogueDescription4', {
+          defaultMessage: 'Plot geographic data.',
+        }),
+        i18n.translate('xpack.observability.featureCatalogueDescription5', {
+          defaultMessage: 'Model, predict, and detect.',
+        }),
+        i18n.translate('xpack.observability.featureCatalogueDescription6', {
+          defaultMessage: 'Reveal patterns and relationships.',
+        }),
+      ],
       icon: 'logoKibana',
       path: '/app/dashboards',
       order: 400,
@@ -157,6 +177,8 @@ export class HomePublicPlugin
     { application: { capabilities, currentAppId$ }, http }: CoreStart,
     { kibanaLegacy }: HomePluginStartDependencies
   ) {
+    this.featuresCatalogueRegistry.start({ capabilities });
+
     // If the home app is the initial location when loading Kibana...
     if (
       window.location.pathname === http.basePath.prepend(HOME_APP_BASE_PATH) &&
@@ -171,8 +193,6 @@ export class HomePublicPlugin
         }
       });
     }
-
-    return { featureCatalogue: { ...this.featuresCatalogueRegistry.start({ capabilities }) } };
   }
 }
 

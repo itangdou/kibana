@@ -57,9 +57,20 @@ export class Plugin implements PluginClass<ObservabilityPluginSetup, Observabili
         title: i18n.translate('xpack.observability.featureCatalogueTitle', {
           defaultMessage: 'Observability',
         }),
-        description: i18n.translate('xpack.observability.featureCatalogueDescription', {
+        subtitle: i18n.translate('xpack.observability.featureCatalogueSubtitle', {
           defaultMessage: 'Centralize & monitor',
         }),
+        descriptions: [
+          i18n.translate('xpack.observability.featureCatalogueDescription1', {
+            defaultMessage: 'Monitor infrastructure metrics.',
+          }),
+          i18n.translate('xpack.observability.featureCatalogueDescription2', {
+            defaultMessage: 'Trace application requests.',
+          }),
+          i18n.translate('xpack.observability.featureCatalogueDescription3', {
+            defaultMessage: 'Measure SLAs and react to issues.',
+          }),
+        ],
         icon: 'logoObservability',
         path: '/app/observability',
         order: 200,
