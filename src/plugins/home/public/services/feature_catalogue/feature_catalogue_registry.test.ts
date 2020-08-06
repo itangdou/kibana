@@ -21,6 +21,7 @@ import {
   FeatureCatalogueRegistry,
   FeatureCatalogueCategory,
   FeatureCatalogueEntry,
+  FeatureCatalogueSolution,
 } from './feature_catalogue_registry';
 
 const DASHBOARD_FEATURE: FeatureCatalogueEntry = {
@@ -33,13 +34,39 @@ const DASHBOARD_FEATURE: FeatureCatalogueEntry = {
   category: FeatureCatalogueCategory.DATA,
 };
 
+const DISCOVER_FEATURE: FeatureCatalogueEntry = {
+  id: 'discover',
+  title: 'Discover',
+  description: 'Search and explore your data.',
+  icon: 'discoverApp',
+  path: '/app/discover#/',
+  category: FeatureCatalogueCategory.DATA,
+  showOnHomePage: false,
+};
+
+const KIBANA_SOLUTION: FeatureCatalogueSolution = {
+  id: 'kibana',
+  title: 'Dashboard',
+  description: 'Display and share a collection of visualizations and saved searches.',
+  icon: 'kibanaApp',
+  path: `/app/home`,
+};
+
 describe('FeatureCatalogueRegistry', () => {
   describe('setup', () => {
-    test('throws when registering duplicate id', () => {
+    test('throws when registering a feature with a duplicate id', () => {
       const setup = new FeatureCatalogueRegistry().setup();
       setup.register(DASHBOARD_FEATURE);
       expect(() => setup.register(DASHBOARD_FEATURE)).toThrowErrorMatchingInlineSnapshot(
         `"Feature with id [dashboard] has already been registered. Use a unique id."`
+      );
+    });
+
+    test('throws when registering a solution with a duplicate id', () => {
+      const setup = new FeatureCatalogueRegistry().setup();
+      setup.registerSolution(KIBANA_SOLUTION);
+      expect(() => setup.registerSolution(KIBANA_SOLUTION)).toThrowErrorMatchingInlineSnapshot(
+        `"Solution with id [kibana] has already been registered. Use a unique id."`
       );
     });
   });
@@ -86,6 +113,30 @@ describe('FeatureCatalogueRegistry', () => {
         { id: '3', title: 'Banana' },
         { id: '1', title: 'Orange' },
       ]);
+    });
+  });
+
+  describe('home page visibility', () => {
+    test('hides feature from home page', () => {
+      const service = new FeatureCatalogueRegistry();
+      const setup = service.setup();
+      setup.register(DASHBOARD_FEATURE);
+      const capabilities = { catalogue: {} } as any;
+      const start = service.start({ capabilities });
+      start.hideFromHomePage(DASHBOARD_FEATURE.id);
+      const features = service.get();
+      expect(features[0]).toHaveProperty('showOnHomePage', false);
+    });
+
+    test('shows feature on home page', () => {
+      const service = new FeatureCatalogueRegistry();
+      const setup = service.setup();
+      setup.register(DISCOVER_FEATURE);
+      const capabilities = { catalogue: {} } as any;
+      const start = service.start({ capabilities });
+      start.showOnHomePage(DISCOVER_FEATURE.id);
+      const features = service.get();
+      expect(features[0]).toHaveProperty('showOnHomePage', true);
     });
   });
 });

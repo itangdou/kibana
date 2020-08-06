@@ -11,12 +11,10 @@ export const featureCatalogueEntry = {
   id: 'apm',
   title: 'APM',
   description: i18n.translate('xpack.apm.apmDescription', {
-    defaultMessage:
-      'Automatically collect in-depth performance metrics and ' +
-      'errors from inside your applications.',
+    defaultMessage: 'Trace application requests.',
   }),
   icon: 'apmApp',
   path: '/app/apm',
-  showOnHomePage: true,
+  showOnHomePage: false,
   category: FeatureCatalogueCategory.DATA,
 };

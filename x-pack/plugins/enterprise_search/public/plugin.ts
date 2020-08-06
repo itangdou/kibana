@@ -12,7 +12,7 @@ import {
   AppMountParameters,
   HttpSetup,
 } from 'src/core/public';
-
+import { i18n } from '@kbn/i18n';
 import {
   FeatureCatalogueCategory,
   HomePublicPluginSetup,
@@ -29,7 +29,7 @@ export interface ClientConfigType {
   host?: string;
 }
 export interface PluginsSetup {
-  home: HomePublicPluginSetup;
+  home?: HomePublicPluginSetup;
   licensing: LicensingPluginSetup;
 }
 
@@ -80,30 +80,32 @@ export class EnterpriseSearchPlugin implements Plugin {
       },
     });
 
-    plugins.home.featureCatalogue.register({
-      id: APP_SEARCH_PLUGIN.ID,
-      title: APP_SEARCH_PLUGIN.NAME,
-      icon: AppSearchLogo,
-      description: APP_SEARCH_PLUGIN.DESCRIPTION,
-      path: APP_SEARCH_PLUGIN.URL,
-      category: FeatureCatalogueCategory.DATA,
-      showOnHomePage: true,
-    });
+    if (plugins.home) {
+      plugins.home.featureCatalogue.register({
+        id: APP_SEARCH_PLUGIN.ID,
+        title: APP_SEARCH_PLUGIN.NAME,
+        icon: AppSearchLogo,
+        description: APP_SEARCH_PLUGIN.DESCRIPTION,
+        path: APP_SEARCH_PLUGIN.URL,
+        category: FeatureCatalogueCategory.DATA,
+        showOnHomePage: false,
+      });
 
-    plugins.home.featureCatalogue.register({
-      id: WORKPLACE_SEARCH_PLUGIN.ID,
-      title: WORKPLACE_SEARCH_PLUGIN.NAME,
-      icon: WorkplaceSearchLogo,
-      description: WORKPLACE_SEARCH_PLUGIN.DESCRIPTION,
-      path: WORKPLACE_SEARCH_PLUGIN.URL,
-      category: FeatureCatalogueCategory.DATA,
-      showOnHomePage: true,
-    });
+      plugins.home.featureCatalogue.register({
+        id: WORKPLACE_SEARCH_PLUGIN.ID,
+        title: WORKPLACE_SEARCH_PLUGIN.NAME,
+        icon: WorkplaceSearchLogo,
+        description: WORKPLACE_SEARCH_PLUGIN.DESCRIPTION,
+        path: WORKPLACE_SEARCH_PLUGIN.URL,
+        category: FeatureCatalogueCategory.DATA,
+        showOnHomePage: false,
+      });
+    }
   }
 
-  public start(core: CoreStart) {}
+  public start(core: CoreStart) { }
 
-  public stop() {}
+  public stop() { }
 
   private async setPublicUrl(config: ClientConfigType, http: HttpSetup) {
     if (!config.host) return; // No API to check
