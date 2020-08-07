@@ -36,7 +36,6 @@ import {
   APP_DETECTIONS_PATH,
   APP_HOSTS_PATH,
   APP_OVERVIEW_PATH,
-  APP_NAME,
   APP_NETWORK_PATH,
   APP_TIMELINES_PATH,
   APP_MANAGEMENT_PATH,
@@ -67,14 +66,16 @@ export class Plugin implements IPlugin<PluginSetup, PluginStart, SetupPlugins, S
   }
 
   public setup(core: CoreSetup<StartPlugins, PluginStart>, plugins: SetupPlugins) {
+    const APP_NAME = i18n.translate('xpack.securitySolution.security.title', {
+      defaultMessage: 'Security',
+    });
+
     initTelemetry(plugins.usageCollection, APP_ID);
 
     if (plugins.home) {
       plugins.home.featureCatalogue.registerSolution({
         id: APP_ID,
-        title: i18n.translate('xpack.securitySolution.featureCatalogue.title', {
-          defaultMessage: APP_NAME,
-        }),
+        title: APP_NAME,
         subtitle: i18n.translate('xpack.securitySolution.featureCatalogue.subtitle', {
           defaultMessage: 'Protect & prevent',
         }),
@@ -116,9 +117,7 @@ export class Plugin implements IPlugin<PluginSetup, PluginStart, SetupPlugins, S
     core.application.register({
       exactRoute: true,
       id: APP_ID,
-      title: i18n.translate('xpack.securitySolution.security.title', {
-        defaultMessage: APP_NAME,
-      }),
+      title: APP_NAME,
       appRoute: APP_PATH,
       navLinkStatus: AppNavLinkStatus.hidden,
       mount: async () => {

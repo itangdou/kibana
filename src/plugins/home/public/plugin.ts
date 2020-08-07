@@ -142,22 +142,22 @@ export class HomePublicPlugin
         defaultMessage: 'Visualize & analyze',
       }),
       descriptions: [
-        i18n.translate('xpack.observability.featureCatalogueDescription1', {
+        i18n.translate('home.kibana.featureCatalogueDescription1', {
           defaultMessage: 'Analyze data in dashboards.',
         }),
-        i18n.translate('xpack.observability.featureCatalogueDescription2', {
+        i18n.translate('home.kibana.featureCatalogueDescription2', {
           defaultMessage: 'Search and find insights.',
         }),
-        i18n.translate('xpack.observability.featureCatalogueDescription3', {
+        i18n.translate('home.kibana.featureCatalogueDescription3', {
           defaultMessage: 'Design pixel-perfect reports.',
         }),
-        i18n.translate('xpack.observability.featureCatalogueDescription4', {
+        i18n.translate('home.kibana.featureCatalogueDescription4', {
           defaultMessage: 'Plot geographic data.',
         }),
-        i18n.translate('xpack.observability.featureCatalogueDescription5', {
+        i18n.translate('home.kibana.featureCatalogueDescription5', {
           defaultMessage: 'Model, predict, and detect.',
         }),
-        i18n.translate('xpack.observability.featureCatalogueDescription6', {
+        i18n.translate('home.kibana.featureCatalogueDescription6', {
           defaultMessage: 'Reveal patterns and relationships.',
         }),
       ],

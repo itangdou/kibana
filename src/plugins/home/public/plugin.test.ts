@@ -19,7 +19,6 @@
 
 import { registryMock, environmentMock, tutorialMock } from './plugin.test.mocks';
 import { HomePublicPlugin } from './plugin';
-import { FeatureCatalogueCategory } from '../../services';
 import { coreMock } from '../../../core/public/mocks';
 import { kibanaLegacyPluginMock } from '../../kibana_legacy/public/mocks';
 
@@ -76,20 +75,6 @@ describe('HomePublicPlugin', () => {
       );
       expect(setup).toHaveProperty('tutorials');
       expect(setup.tutorials).toHaveProperty('setVariable');
-    });
-  });
-
-  describe('start', () => {
-    test('wires up and returns registry', async () => {
-      const start = await new HomePublicPlugin(mockInitializerContext).start(
-        coreMock.createStart() as any,
-        {
-          kibanaLegacy: kibanaLegacyPluginMock.createStartContract(),
-        }
-      );
-      expect(start).toHaveProperty('featureCatalogue');
-      expect(start.featureCatalogue).toHaveProperty('showOnHomePage');
-      expect(start.featureCatalogue).toHaveProperty('hideFromHomePage');
     });
   });
 });

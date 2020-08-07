@@ -16519,8 +16519,6 @@
     "xpack.securitySolution.exceptions.viewer.fetchingListError": "例外の取得エラー",
     "xpack.securitySolution.exceptions.viewer.searchDefaultPlaceholder": "検索フィールド（例：host.name）",
     "xpack.securitySolution.exitFullScreenButton": "全画面を終了",
-    "xpack.securitySolution.featureCatalogue.description": "セキュリティメトリクスとログのイベントとアラートを確認します",
-    "xpack.securitySolution.featureCatalogue.title": "セキュリティ",
     "xpack.securitySolution.featureRegistry.linkSecuritySolutionTitle": "セキュリティ",
     "xpack.securitySolution.fieldBrowser.categoriesCountTitle": "{totalCount} {totalCount, plural, =1 {カテゴリ} other {カテゴリ}}",
     "xpack.securitySolution.fieldBrowser.categoriesTitle": "カテゴリー",

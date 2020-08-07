@@ -16525,8 +16525,6 @@
     "xpack.securitySolution.exceptions.viewer.fetchingListError": "提取例外时出错",
     "xpack.securitySolution.exceptions.viewer.searchDefaultPlaceholder": "搜索字段（例如：host.name）",
     "xpack.securitySolution.exitFullScreenButton": "退出全屏",
-    "xpack.securitySolution.featureCatalogue.description": "浏览安全指标和日志以了解事件和告警",
-    "xpack.securitySolution.featureCatalogue.title": "安全",
     "xpack.securitySolution.featureRegistry.linkSecuritySolutionTitle": "安全",
     "xpack.securitySolution.fieldBrowser.categoriesCountTitle": "{totalCount} 个{totalCount, plural, =1 {类别} other {类别}}",
     "xpack.securitySolution.fieldBrowser.categoriesTitle": "类别",

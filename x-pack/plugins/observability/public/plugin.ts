@@ -13,10 +13,7 @@ import {
   PluginInitializerContext,
   CoreStart,
 } from '../../../../src/core/public';
-import {
-  FeatureCatalogueCategory,
-  HomePublicPluginSetup,
-} from '../../../../src/plugins/home/public';
+import { HomePublicPluginSetup } from '../../../../src/plugins/home/public';
 import { registerDataHandler } from './data_handler';
 import { toggleOverviewLinkInNav } from './toggle_overview_link_in_nav';
 

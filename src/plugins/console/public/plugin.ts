@@ -39,6 +39,7 @@ export class ConsoleUIPlugin implements Plugin<void, void, AppSetupUIPluginDepen
         }),
         icon: 'consoleApp',
         path: '/app/dev_tools#/console',
+        showOnHomePage: false,
         category: FeatureCatalogueCategory.ADMIN,
       });
     }
