@@ -121,7 +121,7 @@ export class SecurityPlugin
           defaultMessage: 'Control who has access and what tasks they can perform.',
         }),
         icon: 'securityApp',
-        path: '/app/management/security/users',
+        path: '/app/management/security/roles',
         showOnHomePage: true,
         category: FeatureCatalogueCategory.ADMIN,
         order: 600,
