@@ -20,8 +20,10 @@
 import React, { FC } from 'react';
 import { EuiButtonEmpty, EuiFlexGroup, EuiFlexItem, EuiSpacer, EuiTitle } from '@elastic/eui';
 import { FormattedMessage } from '@kbn/i18n/react';
+// @ts-expect-error untyped service
 import { FeatureCatalogueEntry } from '../../services';
 import { createAppNavigationHandler } from '../app_navigation_handler';
+// @ts-expect-error untyped component
 import { Synopsis } from '../synopsis';
 
 interface Props {

@@ -201,6 +201,7 @@ export class VisualizePlugin
         }),
         icon: 'visualizeApp',
         path: `/app/visualize#${VisualizeConstants.LANDING_PAGE_PATH}`,
+        showOnHomePage: false,
         category: FeatureCatalogueCategory.DATA,
       });
     }

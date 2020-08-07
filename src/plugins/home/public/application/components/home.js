@@ -123,7 +123,7 @@ export class Home extends Component {
       .sort((directoryA, directoryB) => directoryA.order - directoryB.order);
 
   renderNormal() {
-    const { addBasePath, directories, solutions } = this.props;
+    const { addBasePath, solutions } = this.props;
 
     const devTools = this.findDirectoryById('console');
     const stackManagement = this.findDirectoryById('stack-management');
@@ -131,8 +131,6 @@ export class Home extends Component {
 
     const addDataFeatures = this.getFeaturesByCategory(FeatureCatalogueCategory.DATA);
     const manageDataFeatures = this.getFeaturesByCategory(FeatureCatalogueCategory.ADMIN);
-
-    console.log({ directories, solutions, addDataFeatures, manageDataFeatures });
 
     // Show card for console if none of the manage data plugins are available, most likely in OSS
     if (manageDataFeatures.length < 1 && devTools) {
