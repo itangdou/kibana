@@ -32,6 +32,5 @@ export function registerFeature(home: HomePublicPluginSetup) {
     path: '/app/discover#/',
     showOnHomePage: false,
     category: FeatureCatalogueCategory.DATA,
-    solution: 'kibana',
   });
 }

@@ -358,7 +358,6 @@ export class DashboardPlugin
         path: `/app/dashboards#${DashboardConstants.LANDING_PAGE_PATH}`,
         showOnHomePage: false,
         category: FeatureCatalogueCategory.DATA,
-        solution: 'kibana',
       });
     }
   }

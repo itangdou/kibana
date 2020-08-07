@@ -17,5 +17,4 @@ export const featureCatalogueEntry = {
   path: '/app/canvas',
   showOnHomePage: false,
   category: FeatureCatalogueCategory.DATA,
-  solution: 'kibana',
 };
