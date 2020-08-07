@@ -121,7 +121,7 @@ export class HomePublicPlugin
     featureCatalogue.register({
       id: 'home_tutorial_directory',
       title: i18n.translate('home.tutorialDirectory.featureCatalogueTitle', {
-        defaultMessage: 'Ingest data',
+        defaultMessage: 'Add data',
       }),
       description: i18n.translate('home.tutorialDirectory.featureCatalogueDescription', {
         defaultMessage: 'Ingest data from popular apps and services.',

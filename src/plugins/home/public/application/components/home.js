@@ -220,7 +220,7 @@ export class Home extends Component {
               gutterSize="s"
               justifyContent="spaceBetween"
             >
-              <EuiFlexItem grow={1}>
+              <EuiFlexItem grow={false}>
                 {advancedSettings ? <ChangeHomeRoute defaultRoute={HOME_APP_BASE_PATH} /> : null}
               </EuiFlexItem>
               <EuiFlexItem grow={false}>

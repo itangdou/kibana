@@ -18,38 +18,16 @@
  */
 
 import React, { FC } from 'react';
-import { EuiButtonEmpty, EuiFlexGroup, EuiFlexItem, EuiText } from '@elastic/eui';
+import { EuiButtonEmpty } from '@elastic/eui';
 import { FormattedMessage } from '@kbn/i18n/react';
 import { createAppNavigationHandler } from '../app_navigation_handler';
 
 export const ChangeHomeRoute: FC = () => (
-  <EuiFlexGroup
-    className="homPageFooter__mainAction"
-    alignItems="center"
-    gutterSize="s"
-    responsive={false}
+  <EuiButtonEmpty
+    iconType="home"
+    onClick={createAppNavigationHandler('/app/management/kibana/settings#defaultRoute')}
+    size="xs"
   >
-    <EuiFlexItem grow={false}>
-      <EuiText size="s" color="subdued">
-        <p>
-          <FormattedMessage
-            id="home.changeHomeRouteText"
-            defaultMessage="Would you prefer an alternate landing page? "
-          />
-        </p>
-      </EuiText>
-    </EuiFlexItem>
-    <EuiFlexItem grow={false}>
-      <EuiButtonEmpty
-        iconType="home"
-        onClick={createAppNavigationHandler('/app/management/kibana/settings#defaultRoute')}
-        size="xs"
-      >
-        <FormattedMessage
-          id="home.changeHomeRouteLink"
-          defaultMessage="Change the landing page for this space"
-        />
-      </EuiButtonEmpty>
-    </EuiFlexItem>
-  </EuiFlexGroup>
+    <FormattedMessage id="home.changeHomeRouteLink" defaultMessage="Change the landing page" />
+  </EuiButtonEmpty>
 );

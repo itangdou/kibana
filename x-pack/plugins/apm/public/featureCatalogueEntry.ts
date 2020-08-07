@@ -11,7 +11,9 @@ export const featureCatalogueEntry = {
   id: 'apm',
   title: 'APM',
   description: i18n.translate('xpack.apm.apmDescription', {
-    defaultMessage: 'Trace application requests.',
+    defaultMessage:
+      'Automatically collect in-depth performance metrics and ' +
+      'errors from inside your applications.',
   }),
   icon: 'apmApp',
   path: '/app/apm',

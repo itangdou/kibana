@@ -11,7 +11,7 @@ export const featureCatalogueEntry = {
   id: 'canvas',
   title: 'Canvas',
   description: i18n.translate('xpack.canvas.appDescription', {
-    defaultMessage: 'Design pixel-perfect reports.',
+    defaultMessage: 'Showcase your data in a pixel-perfect way.',
   }),
   icon: 'canvasApp',
   path: '/app/canvas',
