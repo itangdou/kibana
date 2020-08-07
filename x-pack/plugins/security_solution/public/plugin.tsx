@@ -92,6 +92,7 @@ export class Plugin implements IPlugin<PluginSetup, PluginStart, SetupPlugins, S
         ],
         icon: 'logoSecurity',
         path: APP_OVERVIEW_PATH,
+        order: 300,
       });
     }
 

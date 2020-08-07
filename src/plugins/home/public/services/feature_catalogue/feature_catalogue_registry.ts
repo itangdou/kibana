@@ -41,12 +41,12 @@ export interface FeatureCatalogueEntry {
   readonly icon: IconType;
   /** URL path to link to this future. Should not include the basePath. */
   readonly path: string;
+  /** Whether or not this link should be shown on the front page of Kibana. */
+  readonly showOnHomePage: boolean;
   /** An ordinal used to sort features relative to one another for display on the home page */
   readonly order?: number;
   /** The id of a registered solution this app should be displayed under in the solution section of the home page*/
   readonly solution?: string;
-  /** Whether or not this link should be shown on the front page of Kibana. */
-  readonly showOnHomePage: boolean;
 }
 
 /** @public */
