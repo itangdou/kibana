@@ -214,6 +214,7 @@ class TutorialDirectoryUi extends React.Component {
             return (
               <EuiFlexItem key={tutorial.name}>
                 <Synopsis
+                  id={tutorial.id}
                   iconType={tutorial.icon}
                   description={tutorial.description}
                   title={tutorial.name}

@@ -52,6 +52,7 @@ export const ManageData: FC<Props> = ({ addBasePath, features }) => (
         {features.map((feature) => (
           <EuiFlexItem className="homHome__synopsisItem" key={feature.id}>
             <Synopsis
+              id={feature.id}
               onClick={createAppNavigationHandler(feature.path)}
               description={feature.description}
               iconType={feature.icon}

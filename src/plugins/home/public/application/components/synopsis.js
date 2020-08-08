@@ -24,6 +24,7 @@ import classNames from 'classnames';
 import { EuiCard, EuiIcon } from '@elastic/eui';
 
 export function Synopsis({
+  id,
   description,
   iconUrl,
   iconType,
@@ -54,7 +55,7 @@ export function Synopsis({
       description={description}
       onClick={onClick}
       href={url}
-      data-test-subj={`homeSynopsisLink${title.toLowerCase()}`}
+      data-test-subj={`homeSynopsisLink${id.toLowerCase()}`}
       betaBadgeLabel={isBeta ? 'Beta' : null}
     />
   );

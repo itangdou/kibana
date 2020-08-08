@@ -17,7 +17,7 @@ exports[`AddData render 1`] = `
       >
         <h3>
           <FormattedMessage
-            defaultMessage="Add your data"
+            defaultMessage="Ingest your data"
             id="home.addData.sectionTitle"
             values={Object {}}
           />
@@ -52,6 +52,7 @@ exports[`AddData render 1`] = `
       <Synopsis
         description="Ingest data from popular apps and services."
         iconType="indexOpen"
+        id="home_tutorial_directory"
         isBeta={false}
         onClick={[Function]}
         title="Ingest data"
@@ -66,6 +67,7 @@ exports[`AddData render 1`] = `
       <Synopsis
         description="Add and manage your fleet of Elastic Agents and integrations."
         iconType="logstashInput"
+        id="ingestManager"
         isBeta={false}
         onClick={[Function]}
         title="Add Elastic Agent"
@@ -80,6 +82,7 @@ exports[`AddData render 1`] = `
       <Synopsis
         description="Import your own CSV, NDJSON, or log file"
         iconType="importAction"
+        id="ml_file_data_visualizer"
         isBeta={false}
         onClick={[Function]}
         title="Upload a file"

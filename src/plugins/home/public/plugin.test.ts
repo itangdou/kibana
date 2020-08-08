@@ -24,6 +24,14 @@ import { kibanaLegacyPluginMock } from '../../kibana_legacy/public/mocks';
 
 const mockInitializerContext = coreMock.createPluginInitializerContext();
 
+jest.mock('./services', () => ({
+  FeatureCatalogueCategory: {
+    DATA: 'data',
+    ADMIN: 'admin',
+    OTHER: 'other',
+  },
+}));
+
 describe('HomePublicPlugin', () => {
   beforeEach(() => {
     registryMock.setup.mockClear();
@@ -42,6 +50,17 @@ describe('HomePublicPlugin', () => {
       );
       expect(setup).toHaveProperty('featureCatalogue');
       expect(setup.featureCatalogue.register).toHaveBeenCalledTimes(2);
+    });
+
+    test('registers kibana solution to feature catalogue', async () => {
+      const setup = await new HomePublicPlugin(mockInitializerContext).setup(
+        coreMock.createSetup() as any,
+        {
+          kibanaLegacy: kibanaLegacyPluginMock.createSetupContract(),
+        }
+      );
+      expect(setup).toHaveProperty('featureCatalogue');
+      expect(setup.featureCatalogue.registerSolution).toHaveBeenCalledTimes(1);
     });
 
     test('wires up and returns registry', async () => {

@@ -73,7 +73,7 @@ export class HomePublicPlugin
   public setup(
     core: CoreSetup<HomePluginStartDependencies>,
     { kibanaLegacy, usageCollection }: HomePluginSetupDependencies
-  ) {
+  ): HomePublicPluginSetup {
     core.application.register({
       id: PLUGIN_ID,
       title: 'Home',
@@ -206,5 +206,14 @@ export type EnvironmentSetup = EnvironmentServiceSetup;
 export type TutorialSetup = TutorialServiceSetup;
 
 /** @public */
-export type HomePublicPluginSetup = ReturnType<HomePublicPlugin['setup']>;
-export type HomePublicPluginStart = ReturnType<HomePublicPlugin['start']>;
+export interface HomePublicPluginSetup {
+  tutorials: TutorialServiceSetup;
+  featureCatalogue: FeatureCatalogueSetup;
+  /**
+   * The environment service is only available for a transition period and will
+   * be replaced by display specific extension points.
+   * @deprecated
+   */
+
+  environment: EnvironmentSetup;
+}

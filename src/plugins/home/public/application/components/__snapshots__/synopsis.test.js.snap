@@ -4,7 +4,7 @@ exports[`props iconType 1`] = `
 <EuiCard
   betaBadgeLabel={null}
   className="homSynopsis__card homSynopsis__card--noPanel"
-  data-test-subj="homeSynopsisLinkgreat tutorial"
+  data-test-subj="homeSynopsisLinktutorial"
   description="this is a great tutorial about..."
   href="link_to_item"
   icon={
@@ -24,7 +24,7 @@ exports[`props iconUrl 1`] = `
 <EuiCard
   betaBadgeLabel={null}
   className="homSynopsis__card homSynopsis__card--noPanel"
-  data-test-subj="homeSynopsisLinkgreat tutorial"
+  data-test-subj="homeSynopsisLinktutorial"
   description="this is a great tutorial about..."
   href="link_to_item"
   icon={
@@ -44,7 +44,7 @@ exports[`props isBeta 1`] = `
 <EuiCard
   betaBadgeLabel="Beta"
   className="homSynopsis__card homSynopsis__card--noPanel"
-  data-test-subj="homeSynopsisLinkgreat tutorial"
+  data-test-subj="homeSynopsisLinktutorial"
   description="this is a great tutorial about..."
   href="link_to_item"
   layout="horizontal"
@@ -57,7 +57,7 @@ exports[`render 1`] = `
 <EuiCard
   betaBadgeLabel={null}
   className="homSynopsis__card homSynopsis__card--noPanel"
-  data-test-subj="homeSynopsisLinkgreat tutorial"
+  data-test-subj="homeSynopsisLinktutorial"
   description="this is a great tutorial about..."
   href="link_to_item"
   layout="horizontal"

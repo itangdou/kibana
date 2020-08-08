@@ -17,7 +17,7 @@
  * under the License.
  */
 
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from '@kbn/i18n/react';
 import {
@@ -138,7 +138,7 @@ export class Home extends Component {
     }
 
     return (
-      <div className="homPageContainer">
+      <div className="homPageContainer" data-test-subj="homeApp">
         <div className="homPageHeaderContainer">
           <header className="homPageHeader">
             <EuiFlexGroup gutterSize="none">
@@ -192,7 +192,7 @@ export class Home extends Component {
           </header>
         </div>
         <div className="homPageMainContainer">
-          <main className="homPageMain" data-test-subj="homeApp">
+          <main className="homPageMain">
             <SolutionsSection addBasePath={addBasePath} solutions={solutions} />
 
             {/* If there is only one card in each add and manage data section, this displays the two sections side by side */}
@@ -206,10 +206,10 @@ export class Home extends Component {
                 </EuiFlexItem>
               </EuiFlexGroup>
             ) : (
-              <Fragment>
+              <>
                 <AddData addBasePath={addBasePath} features={addDataFeatures} />
                 <ManageData addBasePath={addBasePath} features={manageDataFeatures} />
-              </Fragment>
+              </>
             )}
 
             <EuiHorizontalRule margin="xl" />
@@ -224,7 +224,13 @@ export class Home extends Component {
                 {advancedSettings ? <ChangeHomeRoute defaultRoute={HOME_APP_BASE_PATH} /> : null}
               </EuiFlexItem>
               <EuiFlexItem grow={false}>
-                <EuiButtonEmpty href="#/feature_directory" size="xs" flush="right" iconType="apps">
+                <EuiButtonEmpty
+                  data-test-subj="allPlugins"
+                  href="#/feature_directory"
+                  size="xs"
+                  flush="right"
+                  iconType="apps"
+                >
                   <FormattedMessage
                     id="home.appDirectory.appDirectoryButtonLabel"
                     defaultMessage="View app directory"
