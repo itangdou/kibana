@@ -17,7 +17,7 @@
  * under the License.
  */
 
-import { OwnerRecord } from './ownership_config';
+import { OwnerRecord } from '../ownership_config';
 
 export const parse = (ownershipConfig: OwnerRecord[]) => {
   const owners = new Map();
