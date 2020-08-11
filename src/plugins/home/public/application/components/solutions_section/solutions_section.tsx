@@ -17,7 +17,7 @@
  * under the License.
  */
 
-import React, { Fragment, FC } from 'react';
+import React, { FC } from 'react';
 import { EuiFlexGroup, EuiFlexItem, EuiSpacer, EuiHorizontalRule } from '@elastic/eui';
 import { SolutionPanel } from './solution_panel';
 import { FeatureCatalogueSolution } from '../../../';
@@ -37,7 +37,7 @@ export const SolutionsSection: FC<Props> = ({ solutions }) => {
   solutions = solutions.sort(sortByOrder).filter(({ id }) => id !== 'kibana');
 
   return solutions.length || kibana ? (
-    <Fragment>
+    <>
       <EuiFlexGroup className="homSolutions" justifyContent="spaceAround">
         {solutions.length ? (
           <EuiFlexItem grow={1} className="homSolutions__group homSolutions__group--multiple">
@@ -54,10 +54,8 @@ export const SolutionsSection: FC<Props> = ({ solutions }) => {
       <EuiHorizontalRule margin="xl" />
 
       <EuiSpacer size="s" />
-    </Fragment>
+    </>
   ) : (
-    <Fragment>
-      <EuiSpacer size="xl" />
-    </Fragment>
+    <EuiSpacer size="xl" />
   );
 };
