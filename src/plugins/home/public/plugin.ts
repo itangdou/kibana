@@ -58,12 +58,7 @@ export interface HomePluginSetupDependencies {
 
 export class HomePublicPlugin
   implements
-    Plugin<
-      HomePublicPluginSetup,
-      HomePublicPluginStart,
-      HomePluginSetupDependencies,
-      HomePluginStartDependencies
-    > {
+    Plugin<HomePublicPluginSetup, void, HomePluginSetupDependencies, HomePluginStartDependencies> {
   private readonly featuresCatalogueRegistry = new FeatureCatalogueRegistry();
   private readonly environmentService = new EnvironmentService();
   private readonly tutorialService = new TutorialService();
@@ -129,7 +124,7 @@ export class HomePublicPlugin
       icon: 'indexOpen',
       showOnHomePage: true,
       path: `${HOME_APP_BASE_PATH}#/tutorial_directory`,
-      category: FeatureCatalogueCategory.DATA,
+      category: 'data' as FeatureCatalogueCategory.DATA,
       order: 500,
     });
 

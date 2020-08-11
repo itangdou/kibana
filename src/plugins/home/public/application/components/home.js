@@ -145,11 +145,7 @@ export class Home extends Component {
               <EuiFlexItem className="homPageHeader__title">
                 <EuiTitle size="m">
                   <h1>
-                    <FormattedMessage
-                      id="home.pageHeader.welcomeNoUserTitle"
-                      defaultMessage="Welcome to {ELASTIC}!"
-                      values={{ ELASTIC: 'Elastic' }}
-                    />
+                    <FormattedMessage id="home.pageHeader.title" defaultMessage="Home" />
                   </h1>
                 </EuiTitle>
               </EuiFlexItem>

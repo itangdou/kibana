@@ -22,13 +22,9 @@ exports[`home change home route should render a link to change the default route
           >
             <h1>
               <FormattedMessage
-                defaultMessage="Welcome to {ELASTIC}!"
-                id="home.pageHeader.welcomeNoUserTitle"
-                values={
-                  Object {
-                    "ELASTIC": "Elastic",
-                  }
-                }
+                defaultMessage="Home"
+                id="home.pageHeader.title"
+                values={Object {}}
               />
             </h1>
           </EuiTitle>
@@ -63,6 +59,7 @@ exports[`home change home route should render a link to change the default route
     >
       <SolutionsSection
         addBasePath={[Function]}
+        solutions={Array []}
       />
       <AddData
         addBasePath={[Function]}
@@ -111,123 +108,6 @@ exports[`home change home route should render a link to change the default route
 </div>
 `;
 
-exports[`home directories should not render directory entry if no home page section is specified 1`] = `
-<div
-  className="homPageContainer"
-  data-test-subj="homeApp"
->
-  <div
-    className="homPageHeaderContainer"
-  >
-    <header
-      className="homPageHeader"
-    >
-      <EuiFlexGroup
-        gutterSize="none"
-      >
-        <EuiFlexItem
-          className="homPageHeader__title"
-        >
-          <EuiTitle
-            size="m"
-          >
-            <h1>
-              <FormattedMessage
-                defaultMessage="Welcome to {ELASTIC}!"
-                id="home.pageHeader.welcomeNoUserTitle"
-                values={
-                  Object {
-                    "ELASTIC": "Elastic",
-                  }
-                }
-              />
-            </h1>
-          </EuiTitle>
-        </EuiFlexItem>
-        <EuiFlexItem
-          grow={false}
-        >
-          <EuiFlexGroup
-            alignItems="flexEnd"
-            className="homPageHeader__menu"
-          >
-            <EuiFlexItem
-              className="homPageHeader__menuItem"
-            >
-              <EuiButtonEmpty
-                href="#/tutorial_directory"
-                iconType="plusInCircle"
-              >
-                Add data
-              </EuiButtonEmpty>
-            </EuiFlexItem>
-            <EuiFlexItem
-              className="homPageHeader__menuItem"
-            >
-              <EuiButtonEmpty
-                iconType="gear"
-                onClick={[Function]}
-              >
-                Manage
-              </EuiButtonEmpty>
-            </EuiFlexItem>
-          </EuiFlexGroup>
-        </EuiFlexItem>
-      </EuiFlexGroup>
-    </header>
-  </div>
-  <div
-    className="homPageMainContainer"
-  >
-    <main
-      className="homPageMain"
-    >
-      <SolutionsSection
-        addBasePath={[Function]}
-      />
-      <AddData
-        addBasePath={[Function]}
-        features={Array []}
-      />
-      <ManageData
-        addBasePath={[Function]}
-        features={Array []}
-      />
-      <EuiHorizontalRule
-        margin="xl"
-      />
-      <EuiFlexGroup
-        alignItems="center"
-        className="homPageFooter"
-        gutterSize="s"
-        justifyContent="spaceBetween"
-      >
-        <EuiFlexItem
-          grow={false}
-        />
-        <EuiFlexItem
-          grow={false}
-        >
-          <EuiButtonEmpty
-            data-test-subj="allPlugins"
-            flush="right"
-            href="#/feature_directory"
-            iconType="apps"
-            size="xs"
-          >
-            <FormattedMessage
-              defaultMessage="View app directory"
-              id="home.appDirectory.appDirectoryButtonLabel"
-              values={Object {}}
-            />
-          </EuiButtonEmpty>
-        </EuiFlexItem>
-      </EuiFlexGroup>
-    </main>
-  </div>
-</div>
-`;
-
 exports[`home directories should not render directory entry when showOnHomePage is false 1`] = `
 <div
   className="homPageContainer"
@@ -250,13 +130,9 @@ exports[`home directories should not render directory entry when showOnHomePage 
           >
             <h1>
               <FormattedMessage
-                defaultMessage="Welcome to {ELASTIC}!"
-                id="home.pageHeader.welcomeNoUserTitle"
-                values={
-                  Object {
-                    "ELASTIC": "Elastic",
-                  }
-                }
+                defaultMessage="Home"
+                id="home.pageHeader.title"
+                values={Object {}}
               />
             </h1>
           </EuiTitle>
@@ -301,6 +177,7 @@ exports[`home directories should not render directory entry when showOnHomePage 
     >
       <SolutionsSection
         addBasePath={[Function]}
+        solutions={Array []}
       />
       <AddData
         addBasePath={[Function]}
@@ -367,13 +244,9 @@ exports[`home directories should render ADMIN directory entry in "Manage your da
           >
             <h1>
               <FormattedMessage
-                defaultMessage="Welcome to {ELASTIC}!"
-                id="home.pageHeader.welcomeNoUserTitle"
-                values={
-                  Object {
-                    "ELASTIC": "Elastic",
-                  }
-                }
+                defaultMessage="Home"
+                id="home.pageHeader.title"
+                values={Object {}}
               />
             </h1>
           </EuiTitle>
@@ -408,45 +281,28 @@ exports[`home directories should render ADMIN directory entry in "Manage your da
     >
       <SolutionsSection
         addBasePath={[Function]}
+        solutions={Array []}
       />
-      <EuiFlexGroup>
-        <EuiFlexItem>
-          <AddData
-            addBasePath={[Function]}
-            features={
-              Array [
-                Object {
-                  "category": undefined,
-                  "description": "Manage the index patterns that help retrieve your data from Elasticsearch.",
-                  "icon": "indexPatternApp",
-                  "id": "index_patterns",
-                  "path": "index_management_landing_page",
-                  "showOnHomePage": true,
-                  "title": "Index Patterns",
-                },
-              ]
-            }
-          />
-        </EuiFlexItem>
-        <EuiFlexItem>
-          <ManageData
-            addBasePath={[Function]}
-            features={
-              Array [
-                Object {
-                  "category": undefined,
-                  "description": "Manage the index patterns that help retrieve your data from Elasticsearch.",
-                  "icon": "indexPatternApp",
-                  "id": "index_patterns",
-                  "path": "index_management_landing_page",
-                  "showOnHomePage": true,
-                  "title": "Index Patterns",
-                },
-              ]
-            }
-          />
-        </EuiFlexItem>
-      </EuiFlexGroup>
+      <AddData
+        addBasePath={[Function]}
+        features={Array []}
+      />
+      <ManageData
+        addBasePath={[Function]}
+        features={
+          Array [
+            Object {
+              "category": "admin",
+              "description": "Manage the index patterns that help retrieve your data from Elasticsearch.",
+              "icon": "indexPatternApp",
+              "id": "index_patterns",
+              "path": "index_management_landing_page",
+              "showOnHomePage": true,
+              "title": "Index Patterns",
+            },
+          ]
+        }
+      />
       <EuiHorizontalRule
         margin="xl"
       />
@@ -504,13 +360,9 @@ exports[`home directories should render DATA directory entry in "Ingest your dat
           >
             <h1>
               <FormattedMessage
-                defaultMessage="Welcome to {ELASTIC}!"
-                id="home.pageHeader.welcomeNoUserTitle"
-                values={
-                  Object {
-                    "ELASTIC": "Elastic",
-                  }
-                }
+                defaultMessage="Home"
+                id="home.pageHeader.title"
+                values={Object {}}
               />
             </h1>
           </EuiTitle>
@@ -545,45 +397,28 @@ exports[`home directories should render DATA directory entry in "Ingest your dat
     >
       <SolutionsSection
         addBasePath={[Function]}
+        solutions={Array []}
       />
-      <EuiFlexGroup>
-        <EuiFlexItem>
-          <AddData
-            addBasePath={[Function]}
-            features={
-              Array [
-                Object {
-                  "category": undefined,
-                  "description": "Display and share a collection of visualizations and saved searches.",
-                  "icon": "dashboardApp",
-                  "id": "dashboard",
-                  "path": "dashboard_landing_page",
-                  "showOnHomePage": true,
-                  "title": "Dashboard",
-                },
-              ]
-            }
-          />
-        </EuiFlexItem>
-        <EuiFlexItem>
-          <ManageData
-            addBasePath={[Function]}
-            features={
-              Array [
-                Object {
-                  "category": undefined,
-                  "description": "Display and share a collection of visualizations and saved searches.",
-                  "icon": "dashboardApp",
-                  "id": "dashboard",
-                  "path": "dashboard_landing_page",
-                  "showOnHomePage": true,
-                  "title": "Dashboard",
-                },
-              ]
-            }
-          />
-        </EuiFlexItem>
-      </EuiFlexGroup>
+      <AddData
+        addBasePath={[Function]}
+        features={
+          Array [
+            Object {
+              "category": "data",
+              "description": "Display and share a collection of visualizations and saved searches.",
+              "icon": "dashboardApp",
+              "id": "dashboard",
+              "path": "dashboard_landing_page",
+              "showOnHomePage": true,
+              "title": "Dashboard",
+            },
+          ]
+        }
+      />
+      <ManageData
+        addBasePath={[Function]}
+        features={Array []}
+      />
       <EuiHorizontalRule
         margin="xl"
       />
@@ -641,13 +476,9 @@ exports[`home directories should render solutions in the "solution section" 1`] 
           >
             <h1>
               <FormattedMessage
-                defaultMessage="Welcome to {ELASTIC}!"
-                id="home.pageHeader.welcomeNoUserTitle"
-                values={
-                  Object {
-                    "ELASTIC": "Elastic",
-                  }
-                }
+                defaultMessage="Home"
+                id="home.pageHeader.title"
+                values={Object {}}
               />
             </h1>
           </EuiTitle>
@@ -685,35 +516,47 @@ exports[`home directories should render solutions in the "solution section" 1`] 
         solutions={
           Array [
             Object {
-              "description": "Visualize & analyze",
+              "descriptions": Array [
+                "Analyze data in dashboards",
+              ],
               "icon": "logoKibana",
               "id": "kibana",
               "order": 1,
               "path": "kibana_landing_page",
+              "subtitle": "Visualize & analyze",
               "title": "Kibana",
             },
             Object {
-              "description": "Description about solution two",
+              "descriptions": Array [
+                "Example use case",
+              ],
               "icon": "empty",
               "id": "solution-2",
               "order": 2,
               "path": "path-to-solution-two",
+              "subtitle": "Subtitle for solution two",
               "title": "Solution two",
             },
             Object {
-              "description": "Description about solution three",
+              "descriptions": Array [
+                "Example use case",
+              ],
               "icon": "empty",
               "id": "solution-3",
               "order": 3,
               "path": "path-to-solution-three",
+              "subtitle": "Subtitle for solution three",
               "title": "Solution three",
             },
             Object {
-              "description": "Description about solution four",
+              "descriptions": Array [
+                "Example use case",
+              ],
               "icon": "empty",
               "id": "solution-4",
               "order": 4,
               "path": "path-to-solution-four",
+              "subtitle": "Subtitle for solution four",
               "title": "Solution four",
             },
           ]
@@ -762,7 +605,7 @@ exports[`home directories should render solutions in the "solution section" 1`] 
 </div>
 `;
 
-exports[`home header should not render directory entry if no home page section is specified 1`] = `
+exports[`home header render 1`] = `
 <div
   className="homPageContainer"
   data-test-subj="homeApp"
@@ -784,13 +627,239 @@ exports[`home header should not render directory entry if no home page section i
           >
             <h1>
               <FormattedMessage
-                defaultMessage="Welcome to {ELASTIC}!"
-                id="home.pageHeader.welcomeNoUserTitle"
-                values={
-                  Object {
-                    "ELASTIC": "Elastic",
-                  }
-                }
+                defaultMessage="Home"
+                id="home.pageHeader.title"
+                values={Object {}}
+              />
+            </h1>
+          </EuiTitle>
+        </EuiFlexItem>
+        <EuiFlexItem
+          grow={false}
+        >
+          <EuiFlexGroup
+            alignItems="flexEnd"
+            className="homPageHeader__menu"
+          >
+            <EuiFlexItem
+              className="homPageHeader__menuItem"
+            >
+              <EuiButtonEmpty
+                href="#/tutorial_directory"
+                iconType="plusInCircle"
+              >
+                Add data
+              </EuiButtonEmpty>
+            </EuiFlexItem>
+          </EuiFlexGroup>
+        </EuiFlexItem>
+      </EuiFlexGroup>
+    </header>
+  </div>
+  <div
+    className="homPageMainContainer"
+  >
+    <main
+      className="homPageMain"
+    >
+      <SolutionsSection
+        addBasePath={[Function]}
+        solutions={Array []}
+      />
+      <AddData
+        addBasePath={[Function]}
+        features={Array []}
+      />
+      <ManageData
+        addBasePath={[Function]}
+        features={Array []}
+      />
+      <EuiHorizontalRule
+        margin="xl"
+      />
+      <EuiFlexGroup
+        alignItems="center"
+        className="homPageFooter"
+        gutterSize="s"
+        justifyContent="spaceBetween"
+      >
+        <EuiFlexItem
+          grow={false}
+        />
+        <EuiFlexItem
+          grow={false}
+        >
+          <EuiButtonEmpty
+            data-test-subj="allPlugins"
+            flush="right"
+            href="#/feature_directory"
+            iconType="apps"
+            size="xs"
+          >
+            <FormattedMessage
+              defaultMessage="View app directory"
+              id="home.appDirectory.appDirectoryButtonLabel"
+              values={Object {}}
+            />
+          </EuiButtonEmpty>
+        </EuiFlexItem>
+      </EuiFlexGroup>
+    </main>
+  </div>
+</div>
+`;
+
+exports[`home header should show "Dev tools" link if console is available 1`] = `
+<div
+  className="homPageContainer"
+  data-test-subj="homeApp"
+>
+  <div
+    className="homPageHeaderContainer"
+  >
+    <header
+      className="homPageHeader"
+    >
+      <EuiFlexGroup
+        gutterSize="none"
+      >
+        <EuiFlexItem
+          className="homPageHeader__title"
+        >
+          <EuiTitle
+            size="m"
+          >
+            <h1>
+              <FormattedMessage
+                defaultMessage="Home"
+                id="home.pageHeader.title"
+                values={Object {}}
+              />
+            </h1>
+          </EuiTitle>
+        </EuiFlexItem>
+        <EuiFlexItem
+          grow={false}
+        >
+          <EuiFlexGroup
+            alignItems="flexEnd"
+            className="homPageHeader__menu"
+          >
+            <EuiFlexItem
+              className="homPageHeader__menuItem"
+            >
+              <EuiButtonEmpty
+                href="#/tutorial_directory"
+                iconType="plusInCircle"
+              >
+                Add data
+              </EuiButtonEmpty>
+            </EuiFlexItem>
+            <EuiFlexItem
+              className="homPageHeader__menuItem"
+            >
+              <EuiButtonEmpty
+                iconType="wrench"
+                onClick={[Function]}
+              >
+                Dev tools
+              </EuiButtonEmpty>
+            </EuiFlexItem>
+          </EuiFlexGroup>
+        </EuiFlexItem>
+      </EuiFlexGroup>
+    </header>
+  </div>
+  <div
+    className="homPageMainContainer"
+  >
+    <main
+      className="homPageMain"
+    >
+      <SolutionsSection
+        addBasePath={[Function]}
+        solutions={Array []}
+      />
+      <AddData
+        addBasePath={[Function]}
+        features={Array []}
+      />
+      <ManageData
+        addBasePath={[Function]}
+        features={
+          Array [
+            Object {
+              "category": "admin",
+              "description": "Skip cURL and use a JSON interface to work with your data in Console.",
+              "icon": "consoleApp",
+              "id": "console",
+              "path": "path-to-dev-tools",
+              "showOnHomePage": false,
+              "title": "Console",
+            },
+          ]
+        }
+      />
+      <EuiHorizontalRule
+        margin="xl"
+      />
+      <EuiFlexGroup
+        alignItems="center"
+        className="homPageFooter"
+        gutterSize="s"
+        justifyContent="spaceBetween"
+      >
+        <EuiFlexItem
+          grow={false}
+        />
+        <EuiFlexItem
+          grow={false}
+        >
+          <EuiButtonEmpty
+            data-test-subj="allPlugins"
+            flush="right"
+            href="#/feature_directory"
+            iconType="apps"
+            size="xs"
+          >
+            <FormattedMessage
+              defaultMessage="View app directory"
+              id="home.appDirectory.appDirectoryButtonLabel"
+              values={Object {}}
+            />
+          </EuiButtonEmpty>
+        </EuiFlexItem>
+      </EuiFlexGroup>
+    </main>
+  </div>
+</div>
+`;
+
+exports[`home header should show "Manage" link if stack management is available 1`] = `
+<div
+  className="homPageContainer"
+  data-test-subj="homeApp"
+>
+  <div
+    className="homPageHeaderContainer"
+  >
+    <header
+      className="homPageHeader"
+    >
+      <EuiFlexGroup
+        gutterSize="none"
+      >
+        <EuiFlexItem
+          className="homPageHeader__title"
+        >
+          <EuiTitle
+            size="m"
+          >
+            <h1>
+              <FormattedMessage
+                defaultMessage="Home"
+                id="home.pageHeader.title"
+                values={Object {}}
               />
             </h1>
           </EuiTitle>
@@ -835,6 +904,7 @@ exports[`home header should not render directory entry if no home page section i
     >
       <SolutionsSection
         addBasePath={[Function]}
+        solutions={Array []}
       />
       <AddData
         addBasePath={[Function]}
@@ -901,13 +971,9 @@ exports[`home isNewKibanaInstance should safely handle execeptions 1`] = `
           >
             <h1>
               <FormattedMessage
-                defaultMessage="Welcome to {ELASTIC}!"
-                id="home.pageHeader.welcomeNoUserTitle"
-                values={
-                  Object {
-                    "ELASTIC": "Elastic",
-                  }
-                }
+                defaultMessage="Home"
+                id="home.pageHeader.title"
+                values={Object {}}
               />
             </h1>
           </EuiTitle>
@@ -942,6 +1008,7 @@ exports[`home isNewKibanaInstance should safely handle execeptions 1`] = `
     >
       <SolutionsSection
         addBasePath={[Function]}
+        solutions={Array []}
       />
       <AddData
         addBasePath={[Function]}
@@ -1008,13 +1075,9 @@ exports[`home isNewKibanaInstance should set isNewKibanaInstance to false when t
           >
             <h1>
               <FormattedMessage
-                defaultMessage="Welcome to {ELASTIC}!"
-                id="home.pageHeader.welcomeNoUserTitle"
-                values={
-                  Object {
-                    "ELASTIC": "Elastic",
-                  }
-                }
+                defaultMessage="Home"
+                id="home.pageHeader.title"
+                values={Object {}}
               />
             </h1>
           </EuiTitle>
@@ -1049,6 +1112,7 @@ exports[`home isNewKibanaInstance should set isNewKibanaInstance to false when t
     >
       <SolutionsSection
         addBasePath={[Function]}
+        solutions={Array []}
       />
       <AddData
         addBasePath={[Function]}
@@ -1115,13 +1179,9 @@ exports[`home isNewKibanaInstance should set isNewKibanaInstance to true when th
           >
             <h1>
               <FormattedMessage
-                defaultMessage="Welcome to {ELASTIC}!"
-                id="home.pageHeader.welcomeNoUserTitle"
-                values={
-                  Object {
-                    "ELASTIC": "Elastic",
-                  }
-                }
+                defaultMessage="Home"
+                id="home.pageHeader.title"
+                values={Object {}}
               />
             </h1>
           </EuiTitle>
@@ -1156,6 +1216,7 @@ exports[`home isNewKibanaInstance should set isNewKibanaInstance to true when th
     >
       <SolutionsSection
         addBasePath={[Function]}
+        solutions={Array []}
       />
       <AddData
         addBasePath={[Function]}
@@ -1222,13 +1283,9 @@ exports[`home should render home component 1`] = `
           >
             <h1>
               <FormattedMessage
-                defaultMessage="Welcome to {ELASTIC}!"
-                id="home.pageHeader.welcomeNoUserTitle"
-                values={
-                  Object {
-                    "ELASTIC": "Elastic",
-                  }
-                }
+                defaultMessage="Home"
+                id="home.pageHeader.title"
+                values={Object {}}
               />
             </h1>
           </EuiTitle>
@@ -1263,6 +1320,7 @@ exports[`home should render home component 1`] = `
     >
       <SolutionsSection
         addBasePath={[Function]}
+        solutions={Array []}
       />
       <AddData
         addBasePath={[Function]}
@@ -1329,13 +1387,9 @@ exports[`home welcome should show the normal home page if loading fails 1`] = `
           >
             <h1>
               <FormattedMessage
-                defaultMessage="Welcome to {ELASTIC}!"
-                id="home.pageHeader.welcomeNoUserTitle"
-                values={
-                  Object {
-                    "ELASTIC": "Elastic",
-                  }
-                }
+                defaultMessage="Home"
+                id="home.pageHeader.title"
+                values={Object {}}
               />
             </h1>
           </EuiTitle>
@@ -1370,6 +1424,7 @@ exports[`home welcome should show the normal home page if loading fails 1`] = `
     >
       <SolutionsSection
         addBasePath={[Function]}
+        solutions={Array []}
       />
       <AddData
         addBasePath={[Function]}
@@ -1436,13 +1491,9 @@ exports[`home welcome should show the normal home page if welcome screen is disa
           >
             <h1>
               <FormattedMessage
-                defaultMessage="Welcome to {ELASTIC}!"
-                id="home.pageHeader.welcomeNoUserTitle"
-                values={
-                  Object {
-                    "ELASTIC": "Elastic",
-                  }
-                }
+                defaultMessage="Home"
+                id="home.pageHeader.title"
+                values={Object {}}
               />
             </h1>
           </EuiTitle>
@@ -1477,6 +1528,7 @@ exports[`home welcome should show the normal home page if welcome screen is disa
     >
       <SolutionsSection
         addBasePath={[Function]}
+        solutions={Array []}
       />
       <AddData
         addBasePath={[Function]}
@@ -1550,13 +1602,9 @@ exports[`home welcome stores skip welcome setting if skipped 1`] = `
           >
             <h1>
               <FormattedMessage
-                defaultMessage="Welcome to {ELASTIC}!"
-                id="home.pageHeader.welcomeNoUserTitle"
-                values={
-                  Object {
-                    "ELASTIC": "Elastic",
-                  }
-                }
+                defaultMessage="Home"
+                id="home.pageHeader.title"
+                values={Object {}}
               />
             </h1>
           </EuiTitle>
@@ -1591,6 +1639,7 @@ exports[`home welcome stores skip welcome setting if skipped 1`] = `
     >
       <SolutionsSection
         addBasePath={[Function]}
+        solutions={Array []}
       />
       <AddData
         addBasePath={[Function]}

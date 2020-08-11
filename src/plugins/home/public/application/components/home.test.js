@@ -35,20 +35,13 @@ jest.mock('../kibana_services', () => ({
   }),
 }));
 
-jest.mock('../../services', () => ({
-  FeatureCatalogueCategory: () => ({
-    DATA: 'data',
-    ADMIN: 'admin',
-    OTHER: 'other',
-  }),
-}));
-
 describe('home', () => {
   let defaultProps;
 
   beforeEach(() => {
     defaultProps = {
       directories: [],
+      solutions: [],
       apmUiEnabled: true,
       mlEnabled: true,
       kibanaVersion: '99.2.1',
@@ -101,7 +94,12 @@ describe('home', () => {
   });
 
   describe('header', () => {
-    test('should not render directory entry if no home page section is specified', async () => {
+    test('render', async () => {
+      const component = await renderHome();
+      expect(component).toMatchSnapshot();
+    });
+
+    test('should show "Manage" link if stack management is available', async () => {
       const directoryEntry = {
         id: 'stack-management',
         title: 'Management',
@@ -109,6 +107,25 @@ describe('home', () => {
         icon: 'managementApp',
         path: 'management_landing_page',
         category: FeatureCatalogueCategory.ADMIN,
+        showOnHomePage: false,
+      };
+
+      const component = await renderHome({
+        directories: [directoryEntry],
+      });
+
+      expect(component).toMatchSnapshot();
+    });
+
+    test('should show "Dev tools" link if console is available', async () => {
+      const directoryEntry = {
+        id: 'console',
+        title: 'Console',
+        description: 'Skip cURL and use a JSON interface to work with your data in Console.',
+        icon: 'consoleApp',
+        path: 'path-to-dev-tools',
+        category: FeatureCatalogueCategory.ADMIN,
+        showOnHomePage: false,
       };
 
       const component = await renderHome({
@@ -120,28 +137,12 @@ describe('home', () => {
   });
 
   describe('directories', () => {
-    test('should not render directory entry if no home page section is specified', async () => {
-      const directoryEntry = {
-        id: 'stack-management',
-        title: 'Management',
-        description: 'Your center console for managing the Elastic Stack.',
-        icon: 'managementApp',
-        path: 'management_landing_page',
-        category: FeatureCatalogueCategory.ADMIN,
-      };
-
-      const component = await renderHome({
-        directories: [directoryEntry],
-      });
-
-      expect(component).toMatchSnapshot();
-    });
-
     test('should render solutions in the "solution section"', async () => {
       const solutionEntry1 = {
         id: 'kibana',
         title: 'Kibana',
-        description: 'Visualize & analyze',
+        subtitle: 'Visualize & analyze',
+        descriptions: ['Analyze data in dashboards'],
         icon: 'logoKibana',
         path: 'kibana_landing_page',
         order: 1,
@@ -149,7 +150,8 @@ describe('home', () => {
       const solutionEntry2 = {
         id: 'solution-2',
         title: 'Solution two',
-        description: 'Description about solution two',
+        subtitle: 'Subtitle for solution two',
+        descriptions: ['Example use case'],
         icon: 'empty',
         path: 'path-to-solution-two',
         order: 2,
@@ -157,7 +159,8 @@ describe('home', () => {
       const solutionEntry3 = {
         id: 'solution-3',
         title: 'Solution three',
-        description: 'Description about solution three',
+        subtitle: 'Subtitle for solution three',
+        descriptions: ['Example use case'],
         icon: 'empty',
         path: 'path-to-solution-three',
         order: 3,
@@ -165,7 +168,8 @@ describe('home', () => {
       const solutionEntry4 = {
         id: 'solution-4',
         title: 'Solution four',
-        description: 'Description about solution four',
+        subtitle: 'Subtitle for solution four',
+        descriptions: ['Example use case'],
         icon: 'empty',
         path: 'path-to-solution-four',
         order: 4,
@@ -242,7 +246,9 @@ describe('home', () => {
             icon: 'gear',
             id: 'advanced_settings',
             path: 'path-to-advanced_settings',
+            showOnHomePage: false,
             title: 'Advanced settings',
+            category: FeatureCatalogueCategory.ADMIN,
           },
         ],
       });

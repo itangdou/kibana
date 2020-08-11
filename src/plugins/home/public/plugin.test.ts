@@ -24,12 +24,12 @@ import { kibanaLegacyPluginMock } from '../../kibana_legacy/public/mocks';
 
 const mockInitializerContext = coreMock.createPluginInitializerContext();
 
-jest.mock('./services', () => ({
-  FeatureCatalogueCategory: {
+jest.doMock('./services', () => ({
+  FeatureCatalogueCategory: () => ({
     DATA: 'data',
     ADMIN: 'admin',
     OTHER: 'other',
-  },
+  }),
 }));
 
 describe('HomePublicPlugin', () => {
@@ -41,7 +41,7 @@ describe('HomePublicPlugin', () => {
   });
 
   describe('setup', () => {
-    test('registers advanced settings and tutorial directory to feature catalogue', async () => {
+    test('registers tutorial directory to feature catalogue', async () => {
       const setup = await new HomePublicPlugin(mockInitializerContext).setup(
         coreMock.createSetup() as any,
         {
@@ -49,7 +49,15 @@ describe('HomePublicPlugin', () => {
         }
       );
       expect(setup).toHaveProperty('featureCatalogue');
-      expect(setup.featureCatalogue.register).toHaveBeenCalledTimes(2);
+      expect(setup.featureCatalogue.register).toHaveBeenCalledTimes(1);
+      expect(setup.featureCatalogue.register).toHaveBeenCalledWith(
+        expect.objectContaining({
+          category: 'data',
+          icon: 'indexOpen',
+          id: 'home_tutorial_directory',
+          showOnHomePage: true,
+        })
+      );
     });
 
     test('registers kibana solution to feature catalogue', async () => {
@@ -61,6 +69,12 @@ describe('HomePublicPlugin', () => {
       );
       expect(setup).toHaveProperty('featureCatalogue');
       expect(setup.featureCatalogue.registerSolution).toHaveBeenCalledTimes(1);
+      expect(setup.featureCatalogue.registerSolution).toHaveBeenCalledWith(
+        expect.objectContaining({
+          icon: 'logoKibana',
+          id: 'kibana',
+        })
+      );
     });
 
     test('wires up and returns registry', async () => {
