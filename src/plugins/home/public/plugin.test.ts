@@ -24,14 +24,6 @@ import { kibanaLegacyPluginMock } from '../../kibana_legacy/public/mocks';
 
 const mockInitializerContext = coreMock.createPluginInitializerContext();
 
-jest.doMock('./services', () => ({
-  FeatureCatalogueCategory: () => ({
-    DATA: 'data',
-    ADMIN: 'admin',
-    OTHER: 'other',
-  }),
-}));
-
 describe('HomePublicPlugin', () => {
   beforeEach(() => {
     registryMock.setup.mockClear();
